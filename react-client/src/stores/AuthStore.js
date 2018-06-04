@@ -27,9 +27,10 @@ class AuthStore {
   };
 
   @action
-  deauthenticateToken = () => {
+  logout = () => {
     localStorage.removeItem('token');
     this.token = localStorage.getItem('token');
+    this.isAuthenticated = false;
   };
 
   @action

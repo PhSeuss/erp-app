@@ -11,7 +11,7 @@ class Header extends Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
   handleLogout(e) {
-    this.props.AuthStore.deauthenticateToken();
+    this.props.AuthStore.logout();
   }
   render() {
     return (

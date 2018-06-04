@@ -9,15 +9,19 @@ class Login extends Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      checked: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
+    const target = e.target;
+    const name = e.target.name;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value
     });
   }
   handleSubmit(e) {
@@ -44,7 +48,12 @@ class Login extends Component {
           />
           <p>
             <label>
-              <input type="checkbox" />
+              <input
+                name="checked"
+                value={this.state.checked}
+                type="checkbox"
+                onChange={this.handleChange}
+              />
               Remember me
             </label>
           </p>
