@@ -29,9 +29,9 @@ class Header extends Component {
             </div>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a href="">
+                <Link to="/profile">
                   <span className="glyphicon glyphicon-user" /> Profile
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="" onClick={this.handleLogout}>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import Header from '../components/header/Header';
+import Profile from '../components/profile/Profile';
 import SideBar from '../components/sidebar/SideBar';
 import DashBoard from '../components/dashboard/DashBoard';
 import {
@@ -24,6 +25,7 @@ class PrivateRoutes extends Component {
           <SideBar />
           <div className="container">
             <Switch>
+              <Route exact path="/profile" component={Profile} />
               <Route exact path="/dashboard" component={DashBoard} />
               <Redirect to="/dashboard" />
             </Switch>
