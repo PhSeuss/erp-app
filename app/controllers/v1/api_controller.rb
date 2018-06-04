@@ -17,8 +17,9 @@ class V1::ApiController < ApplicationController
   def render_unauthorized(message)
     render json: { error: message }, status: :unauthorized
   end
-
+  
   private
+  
   def authenticate_token
       token = request.headers['Authorization'] and
       token = token.split(' ').last and

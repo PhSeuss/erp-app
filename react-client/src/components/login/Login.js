@@ -23,16 +23,7 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(JSON.stringify(this.state));
-    fetch('/v1/session', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(res => this.props.AuthStore.authenticateToken(res.token))
-      .catch(err => console.log(err.headers));
+    this.props.AuthStore.login(this.state);
   }
   render() {
     return (

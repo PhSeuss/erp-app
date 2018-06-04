@@ -3,7 +3,9 @@ class V1::SessionsController < V1::ApiController
   
   def create
     head :unauthorized unless
-    @user = User.find_by_email(params[:email]) and
+    authenticate_token and
+    head :created or
+    (@user = User.find_by_email(params[:email]) and
     @user.valid_password?(params[:password]) and
     @user.jwt_matcher = rand(1000000).to_s and
     @user.save and
@@ -15,7 +17,7 @@ class V1::SessionsController < V1::ApiController
         'HS256'
       )
       render :create, status: :created, locals: { token: jwt }
-    end
+    end)
   end
   
   def destroy
