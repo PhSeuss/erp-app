@@ -3,7 +3,7 @@ class V1::SessionsController < V1::ApiController
   
   def create
     head :unauthorized unless
-    @user = User.find_by_email(params[:email]) and
+    @user = User.find_by_user_name(params[:user_name]) and
     @user.valid_password?(params[:password]) and
     @user.jwt_matcher = rand(1000000).to_s and
     @user.save and

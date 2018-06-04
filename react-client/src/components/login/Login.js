@@ -8,7 +8,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      user_name: '',
       password: '',
       checked: true
     };
@@ -36,7 +36,7 @@ class Login extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="email"
+            name="user_name"
             placeholder="Your Name"
             onChange={this.handleChange}
           />
